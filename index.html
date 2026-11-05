@@ -55,6 +55,10 @@ h3{font-size:19px;line-height:1.3;font-weight:800;color:var(--verde-esc)}
 .quiz .refazer{background:none;border:0;text-align:center;color:var(--suave);font-weight:600;font-size:14px;text-decoration:underline;margin:12px 0 0;padding:4px}
 .quiz .aviso{font-size:13px;color:var(--suave);margin-top:12px}
 .prazo{display:inline-block;background:var(--laranja);color:#fff;font-weight:900;font-size:16px;padding:8px 16px;border-radius:99px;margin-bottom:14px}
+.urgencia{background:var(--claro);border-top:1px solid var(--borda);text-align:center;padding:40px 0}
+.urgencia .prazo{display:block;background:none;color:var(--verde-esc);font-size:clamp(24px,4vw,32px);line-height:1.2;padding:0;margin-bottom:10px}
+.urgencia p{font-weight:600;color:var(--verde-esc);max-width:520px;margin:0 auto}
+.urgencia .btn{margin:22px auto 0}
 .duvidas{display:grid;gap:12px;grid-template-columns:1fr}
 .balao{background:#dcf8c6;border:1px solid #bfe3a4;border-radius:14px 14px 14px 2px;padding:14px 16px;font-weight:600}
 .nota-fonte{font-size:13px;color:var(--suave);text-align:center;margin-top:14px}
@@ -117,6 +121,8 @@ details p{padding:0 16px 16px;color:var(--suave)}
 .final .btn{margin:22px auto 0}
 footer{background:var(--verde-esc);color:#e7efe0;font-size:14px;padding:30px 0;text-align:center}
 footer p{margin-top:8px}
+footer .legal{margin-top:14px}
+footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
 @media(min-width:760px){
 .hero-grid{grid-template-columns:1.05fr 1fr}
 .duvidas{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
@@ -131,6 +137,7 @@ footer p{margin-top:8px}
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </head>
 <body>
+
 
 <div class="topo" id="contagem">Vale a partir de 1º de janeiro de 2027</div>
 
@@ -186,21 +193,6 @@ footer p{margin-top:8px}
   </div>
 </section>
 
-<section class="recebe">
-  <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">O que você recebe</span>
-      <h2>Tudo em um PDF para entender onde você se encaixa</h2>
-    </div>
-    <div class="lista">
-      <div><b>Limite e receita (mapas 1 a 10)</b><span>A régua dos R$ 3,6 milhões, o que entra na conta e o que muda se você tem sociedade.</span></div>
-      <div><b>CNPJ e nota (mapas 11 a 20)</b><span>O que é o CNPJ do produtor, quando emitir a nota e por que o comprador vai pedir.</span></div>
-      <div><b>Vale virar contribuinte? (mapas 21 a 30)</b><span>Como funciona a opção, quando começa a valer e se dá para voltar atrás.</span></div>
-      <div><b>Checklist antes de janeiro</b><span>Cinco itens para revisar antes de a regra começar a valer.</span></div>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="wrap head">
     <span class="eyebrow">Veja por dentro</span>
@@ -240,6 +232,21 @@ footer p{margin-top:8px}
   </div>
 </div>
 
+<section class="recebe">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">O que você recebe</span>
+      <h2>Tudo em um PDF para entender onde você se encaixa</h2>
+    </div>
+    <div class="lista">
+      <div><b>Limite e receita (mapas 1 a 10)</b><span>A régua dos R$ 3,6 milhões, o que entra na conta e o que muda se você tem sociedade.</span></div>
+      <div><b>CNPJ e nota (mapas 11 a 20)</b><span>O que é o CNPJ do produtor, quando emitir a nota e por que o comprador vai pedir.</span></div>
+      <div><b>Vale virar contribuinte? (mapas 21 a 30)</b><span>Como funciona a opção, quando começa a valer e se dá para voltar atrás.</span></div>
+      <div><b>Checklist antes de janeiro</b><span>Cinco itens para revisar antes de a regra começar a valer.</span></div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="head">
@@ -256,10 +263,17 @@ footer p{margin-top:8px}
   </div>
 </section>
 
+<section class="urgencia">
+  <div class="wrap">
+    <span class="prazo" id="prazo-oferta">A regra vale a partir de 1º de janeiro de 2027</span>
+    <p>Acesso imediato depois da compra. Você já começa a se organizar hoje.</p>
+    <a class="btn" href="#oferta">QUERO ACESSAR AGORA</a>
+  </div>
+</section>
+
 <section class="oferta" id="oferta">
   <div class="wrap">
     <div class="head">
-      <span class="prazo" id="prazo-oferta">A regra vale a partir de 1º de janeiro de 2027</span><br>
       <span class="eyebrow">Oferta</span>
       <h2>Escolha a melhor opção para você</h2>
       <p>Pagamento único. Acesso imediato depois da confirmação.</p>
@@ -346,6 +360,7 @@ footer p{margin-top:8px}
     <p>Material educativo independente, sem vínculo com o governo. Não substitui orientação profissional.</p>
     <p>Conteúdo baseado na LC 214/2025 e no Decreto 12.955/2026. As regras ainda podem mudar.</p>
     <p>Contato: <a href="mailto:jecpo666@gmail.com">jecpo666@gmail.com</a></p>
+    <p class="legal"><a href="privacidade.html">Política de Privacidade</a> · <a href="termos.html">Termos de Uso</a></p>
   </div>
 </footer>
 
