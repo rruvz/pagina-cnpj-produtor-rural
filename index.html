@@ -41,19 +41,6 @@ h3{font-size:19px;line-height:1.3;font-weight:800;color:var(--verde-esc)}
 .confianca{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--branco);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);padding:18px 0}
 .confianca div{text-align:center;font-size:14px;font-weight:700;color:var(--verde-esc);padding:0 6px}
 .confianca b{display:block;font-size:20px;color:var(--laranja);font-weight:900}
-.quiz{background:var(--branco);border:2px solid var(--verde);border-radius:16px;padding:22px;max-width:640px;margin:0 auto;box-shadow:0 6px 18px rgba(15,71,34,.1)}
-.quiz .passo{font-size:13px;font-weight:800;color:var(--terra);letter-spacing:.06em;text-transform:uppercase}
-.quiz .pergunta{font-size:21px;font-weight:800;color:var(--verde-esc);line-height:1.25;margin:6px 0 16px}
-.quiz button{display:block;width:100%;text-align:left;font:inherit;font-weight:700;color:var(--verde-esc);background:var(--creme);border:2px solid var(--borda);border-radius:12px;padding:15px 16px;margin-bottom:10px;cursor:pointer}
-.quiz button:hover,.quiz button:focus-visible{border-color:var(--verde);background:var(--claro);outline:none}
-.quiz .result-tag{display:inline-block;background:var(--verde);color:#fff;font-weight:800;font-size:13px;padding:4px 12px;border-radius:99px;margin-bottom:10px}
-.quiz .res-titulo{font-size:22px;font-weight:900;color:var(--verde-esc);line-height:1.2}
-.quiz ul{margin:12px 0 14px 20px;color:var(--texto)}
-.quiz li{margin-bottom:6px}
-.quiz .mapas{background:var(--claro);border-radius:10px;padding:12px 14px;font-weight:700;color:var(--verde-esc);margin-bottom:14px}
-.quiz .btn{max-width:none}
-.quiz .refazer{background:none;border:0;text-align:center;color:var(--suave);font-weight:600;font-size:14px;text-decoration:underline;margin:12px 0 0;padding:4px}
-.quiz .aviso{font-size:13px;color:var(--suave);margin-top:12px}
 .prazo{display:inline-block;background:var(--laranja);color:#fff;font-weight:900;font-size:16px;padding:8px 16px;border-radius:99px;margin-bottom:14px}
 .urgencia{background:var(--claro);border-top:1px solid var(--borda);text-align:center;padding:40px 0}
 .urgencia .prazo{display:block;background:none;color:var(--verde-esc);font-size:clamp(24px,4vw,32px);line-height:1.2;padding:0;margin-bottom:10px}
@@ -128,6 +115,7 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
 .duvidas{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
 .lista{grid-template-columns:repeat(2,1fr)}
 .cards{grid-template-columns:repeat(2,1fr)}
+.autoridade .cards{grid-template-columns:repeat(3,1fr)}
 .bonus-grid{grid-template-columns:repeat(3,1fr)}
 .bonus{grid-template-columns:320px 1fr;align-items:center}
 .planos{grid-template-columns:1fr 1fr}
@@ -165,6 +153,22 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
   <div><b>PDF</b>no celular ou impresso</div>
   <div><b>7 dias</b>de garantia</div>
 </div>
+
+<section class="autoridade">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">De onde vem o conteúdo</span>
+      <h2>Feito a partir da lei, não de boato</h2>
+      <p>Cada regra dos mapas foi conferida no texto oficial publicado no site do Planalto.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Lei Complementar 214/2025</h3><p>A lei da reforma tributária que criou o IBS e a CBS e define o limite de R$ 3,6 milhões.</p></div>
+      <div class="card"><h3>Decreto 12.955/2026</h3><p>O regulamento que trata do CNPJ e da nota do produtor pessoa física a partir de 2027.</p></div>
+      <div class="card"><h3>CNA e Ministério da Fazenda</h3><p>O que eles informam sobre a inscrição e sobre você continuar como pessoa física.</p></div>
+    </div>
+    <p class="nota-fonte">Material educativo independente, sem vínculo com o governo.</p>
+  </div>
+</section>
 
 <section>
   <div class="wrap head">
@@ -210,17 +214,6 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
     <span class="prazo" id="prazo-oferta">A regra vale a partir de 1º de janeiro de 2027</span>
     <p>Acesso imediato depois da compra. Você já começa a se organizar hoje.</p>
     <a class="btn" href="#oferta">QUERO ACESSAR AGORA</a>
-  </div>
-</section>
-
-<section id="teste" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Teste rápido e grátis</span>
-      <h2>Descubra em 3 perguntas onde você se encaixa</h2>
-      <p>Não pedimos nome nem contato.</p>
-    </div>
-    <div class="quiz" id="quiz" aria-live="polite"></div>
   </div>
 </section>
 
@@ -381,37 +374,6 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
     document.querySelectorAll('.lanc,.de,.ate').forEach(function(e){e.remove()});
     document.querySelectorAll('.vl,#preco-final').forEach(function(e){e.textContent=e.getAttribute('data-depois')});
   }
-})();
-
-(function(){
-  var box=document.getElementById('quiz'), resp={};
-  var perguntas=[
-    {k:'pessoa',t:'Você produz e vende como pessoa física?',o:[['pf','Sim, pessoa física'],['pj','Não, tenho empresa']]},
-    {k:'integ',t:'Você tem contrato de integração com uma agroindústria?',o:[['sim','Sim'],['nao','Não']]},
-    {k:'receita',t:'Somando sociedades em empresas agropecuárias, quanto você recebe de vendas por ano?',o:[['menos','Menos de R$ 3,6 milhões'],['mais','R$ 3,6 milhões ou mais'],['nsei','Não sei']]}
-  ];
-  var cnpj='Como pessoa física, a inscrição no CNPJ e a emissão de documento fiscal valem a partir de 1º de janeiro de 2027.';
-  function resultado(){
-    if(resp.integ==='sim') return {t:'Você tem regra própria: produtor integrado',l:['Nos fornecimentos do contrato, você não é contribuinte de IBS e CBS, seja qual for a receita.',resp.pessoa==='pf'?cnpj:'Outras operações, fora do contrato, podem ter tratamento diferente.','Na nota, o valor é o da remuneração prevista no contrato.'],m:'Mapas 2, 8, 15 e 29'};
-    if(resp.receita==='nsei') return {t:'Seu primeiro passo é somar a sua receita',l:['É ela que indica se você fica abaixo ou acima do limite de R$ 3,6 milhões.','Nem tudo entra na conta, como a venda da terra nua.','Quem tem sociedade em outra empresa agropecuária soma as receitas.'],m:'Mapas 1, 3, 4 e 5'};
-    if(resp.receita==='mais') return {t:'Você tende a ser contribuinte de IBS e CBS',l:['Com receita de R$ 3,6 milhões ou mais, a apuração é mensal, de débitos e créditos.',resp.pessoa==='pf'?cnpj:'Vale conferir se os seus produtos e insumos têm redução de alíquota.','Se a sua receita de 2024 foi de R$ 3,6 milhões ou mais, você já é contribuinte desde 1º de janeiro de 2026.'],m:'Mapas 1, 5, 21, 22 e 29'};
-    return {t:'Você tende a ficar como não contribuinte',l:['Abaixo de R$ 3,6 milhões, você não é contribuinte de IBS e CBS, mas pode optar por ser.',resp.pessoa==='pf'?cnpj:'Mesmo sem ser contribuinte, a venda precisa de documento fiscal.','Seu comprador no regime regular só tem crédito presumido se a venda tiver documento fiscal.'],m:'Mapas 1, 8, 13, 16 e 26'};
-  }
-  function pergunta(i){
-    var q=perguntas[i];
-    box.innerHTML='<div class="passo">Pergunta '+(i+1)+' de '+perguntas.length+'</div><div class="pergunta">'+q.t+'</div>';
-    q.o.forEach(function(op){
-      var b=document.createElement('button'); b.type='button'; b.textContent=op[1];
-      b.onclick=function(){resp[q.k]=op[0]; if(q.k==='integ'&&op[0]==='sim'){final()}else if(i+1<perguntas.length){pergunta(i+1)}else{final()}};
-      box.appendChild(b);
-    });
-  }
-  function final(){
-    var r=resultado();
-    box.innerHTML='<span class="result-tag">Seu resultado</span><div class="res-titulo">'+r.t+'</div><ul>'+r.l.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="mapas">Comece por: '+r.m+'</div><a class="btn" href="#oferta">VER OS MAPAS DO MEU CASO</a><p class="aviso">Orientação geral com base na LC 214/2025 e no Decreto 12.955/2026. Não é análise do seu caso.</p>';
-    var b=document.createElement('button'); b.type='button'; b.className='refazer'; b.textContent='Refazer o teste'; b.onclick=function(){resp={};pergunta(0)}; box.appendChild(b);
-  }
-  pergunta(0);
 })();
 
 (function(){
