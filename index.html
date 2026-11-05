@@ -133,7 +133,20 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Para o produtor rural pessoa física</span>
-      <h1>CNPJ do produtor em 2027: entenda em mapas o que muda para você</h1>
+      <h1 id="headline">CNPJ do produtor em 2027: entenda em mapas o que muda para você</h1>
+      <script>
+      (function(){
+        // Headline igual ao gancho do anúncio, lido do utm_content (nome do anúncio no Meta)
+        var c=(new URLSearchParams(location.search).get('utm_content')||'').toUpperCase();
+        var h={
+          '_DOR_':'O CNPJ de 2027 não é só para quem fatura R$ 3,6 milhões',
+          '_LIMITE_':'O CNPJ de 2027 não é só para quem fatura R$ 3,6 milhões',
+          '_EMPRESA_':'Vou ter que abrir empresa? Veja em mapas o que muda para o produtor',
+          '_NICHO_':'Por que o comprador vai pedir sua nota em 2027'
+        };
+        for(var k in h){ if(c.indexOf(k)>-1){ document.getElementById('headline').textContent=h[k]; break; } }
+      })();
+      </script>
       <p class="sub">São +30 mapas visuais em PDF para ver quem precisa de CNPJ, como fica a nota e o que organizar antes de janeiro. Consulte no celular.</p>
       <div class="cta">
         <a class="btn" href="#oferta">QUERO ACESSAR AGORA</a>
