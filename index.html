@@ -89,6 +89,7 @@ h3{font-size:19px;line-height:1.3;font-weight:800;color:var(--verde-esc)}
 .preco{font-size:46px;font-weight:900;color:var(--verde-esc);line-height:1.1;margin:10px 0 2px}
 .preco small{font-size:20px;font-weight:800}
 .lanc{display:inline-block;align-self:flex-start;background:var(--terra);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:99px;margin-top:8px}
+.lanc.bf{background:#111;color:#ffb932;letter-spacing:.06em}
 .de{font-size:16px;font-weight:600;color:var(--suave);margin-top:10px}
 .de s{color:var(--terra);font-weight:800}
 .de + .preco{margin-top:0}
@@ -383,6 +384,11 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
   if(dias>0){
     var aviso=document.querySelector('#oferta .head p');
     aviso.textContent='Preço de lançamento até 31/12/2026. Pagamento único e acesso imediato depois da confirmação.';
+    // Selo de Black Friday até 30/11/2026; o desconto e a data de fim continuam os do lançamento
+    if(new Date()<new Date(2026,11,1)){
+      document.querySelectorAll('.lanc').forEach(function(e){e.textContent='BLACK FRIDAY';e.classList.add('bf')});
+      aviso.textContent='Preço de Black Friday, válido até 31/12/2026. Pagamento único e acesso imediato depois da confirmação.';
+    }
   }else{
     document.querySelectorAll('.lanc,.de,.ate').forEach(function(e){e.remove()});
     document.querySelectorAll('.vl,#preco-final').forEach(function(e){e.textContent=e.getAttribute('data-depois')});
