@@ -136,12 +136,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1181147460902461');
 fbq('track', 'PageView');
-// Clique nos planos: InitiateCheckout com o preço mostrado no plano
-document.addEventListener('click',function(ev){
-  var a=ev.target.closest&&ev.target.closest('a[data-checkout]'); if(!a) return;
-  var vl=a.closest('.plano').querySelector('.vl');
-  fbq('track','InitiateCheckout',{content_name:a.getAttribute('data-checkout'),value:parseFloat(vl.textContent.replace(',','.')),currency:'BRL'});
-});
+// InitiateCheckout fica com a Cakto, que já envia ao abrir o checkout
 </script>
 <!-- End Meta Pixel Code -->
 </head>
