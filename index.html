@@ -124,8 +124,29 @@ footer .legal a{color:#fff;font-weight:700;display:inline-block;padding:6px 8px}
 }
 </style>
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1181147460902461');
+fbq('track', 'PageView');
+// Clique nos planos: InitiateCheckout com o preço mostrado no plano
+document.addEventListener('click',function(ev){
+  var a=ev.target.closest&&ev.target.closest('a[data-checkout]'); if(!a) return;
+  var vl=a.closest('.plano').querySelector('.vl');
+  fbq('track','InitiateCheckout',{content_name:a.getAttribute('data-checkout'),value:parseFloat(vl.textContent.replace(',','.')),currency:'BRL'});
+});
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1181147460902461&ev=PageView&noscript=1"></noscript>
 
 
 <div class="topo" id="contagem">Vale a partir de 1º de janeiro de 2027</div>
