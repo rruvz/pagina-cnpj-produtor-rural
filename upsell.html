@@ -32,6 +32,8 @@ h2{font-size:clamp(22px,4vw,28px);line-height:1.2;font-weight:800;color:var(--ve
 .oferta .so{font-weight:800;color:var(--terra);font-size:14px;text-transform:uppercase;letter-spacing:.06em}
 .oferta .preco{font-size:44px;font-weight:900;color:var(--verde-esc);line-height:1.1;margin:6px 0}
 .oferta .det{color:var(--suave);font-size:15px;margin-bottom:18px}
+.topo-oferta{margin:0 0 8px;padding:18px}
+.topo-oferta .preco{font-size:36px}
 .cakto{display:flex;flex-direction:column;align-items:center;gap:14px}
 .recusar{display:block;text-align:center;color:var(--suave);font-size:16px;text-decoration:underline;margin-top:6px}
 footer{text-align:center;color:var(--suave);font-size:14px;padding:28px 16px 40px}
@@ -49,6 +51,31 @@ footer a{color:var(--verde-esc)}
 </header>
 
 <img class="capa" src="img/cal-capa.jpg" alt="Capa do Calendário Rural 2027: a reforma tributária mês a mês" width="1200" height="675">
+
+<div class="oferta topo-oferta">
+  <div class="preco">R$ 19,90</div>
+  <p class="det">PDF de 10 páginas · Acesso no mesmo e-mail da sua compra</p>
+  <div class="cakto">
+    <cakto-upsell-buttons>
+      <cakto-upsell-accept
+        bg-color="#f27416ff"
+        text-color="#ffffff"
+        upsell-accept-url="members_area"
+        offer-id="g649kbz"
+        app-base-url="https://app.cakto.com.br"
+        offer-type="upsell"
+        upsell-reject-url="https://pagina-cnpj-produtor-rural.vercel.app/downsell.html"
+      >
+        Sim, quero o Calendário por R$ 19,90
+      </cakto-upsell-accept>
+      <cakto-upsell-reject
+        upsell-reject-url="https://pagina-cnpj-produtor-rural.vercel.app/downsell.html"
+      >
+        Não, obrigado. Quero só o que já comprei
+      </cakto-upsell-reject>
+    </cakto-upsell-buttons>
+  </div>
+</div>
 
 <h2>O que vem nas 10 páginas</h2>
 <div class="lista">
